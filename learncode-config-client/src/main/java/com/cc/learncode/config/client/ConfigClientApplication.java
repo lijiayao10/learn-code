@@ -2,7 +2,19 @@ package com.cc.learncode.config.client;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+/**
+ * <p>
+ * http://blog.didispace.com/springcloud7/
+ * http://blog.didispace.com/springcloud7/
+ * <P>
+ * 
+ * @author caojiayao
+ * @version $Id: ConfigClientApplication.java, v 0.1 2016年12月30日 下午3:18:33
+ *          caojiayao Exp $
+ */
+@EnableDiscoveryClient
 @SpringBootApplication
 public class ConfigClientApplication {
 

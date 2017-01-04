@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * <p>
  * http://blog.didispace.com/springcloud4-2/
+ * http://blog.didispace.com/springcloud7/
  * <P>
  * 
  * @author caojiayao

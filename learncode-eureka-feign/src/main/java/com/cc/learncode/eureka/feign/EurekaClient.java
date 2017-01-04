@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(serviceId="eureka-service")
+@FeignClient(value = "eureka-service", fallback = EurekaClientHytrix.class)
 public interface EurekaClient {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/add")

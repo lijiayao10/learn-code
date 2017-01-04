@@ -8,6 +8,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  * 
  * <p>
  * http://blog.didispace.com/springcloud1/
+ * http://blog.didispace.com/springcloud6/
  * <P>
  * 
  * @author caojiayao

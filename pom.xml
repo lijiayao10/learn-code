@@ -62,6 +62,12 @@
     <module>learncode-eureka-service</module>
     <module>learncode-eureka-ribbon</module>
     <module>learncode-eureka-feign</module>
+    <module>learncode-netflix-hytrix</module>
+    <module>learncode-cloud-bus</module>
+    <module>learncode-cloud-kafaka</module>
+    <module>learncode-state-machine</module>
+    <module>learncode-actuator</module>
+    <module>learncode-cloud-consul</module>
   </modules>
 
 	<build>

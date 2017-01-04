@@ -11,6 +11,8 @@ import org.springframework.web.client.RestTemplate;
  * 
  * <p>
  * http://blog.didispace.com/springcloud2/
+ * 
+ * http://blog.didispace.com/spring-cloud-ribbon-failed-retry/
  * <P>
  * 
  * @author caojiayao
