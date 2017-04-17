@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	default-autowire="byName">
+
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.cc.learncode.servlet" />
+
+	<!-- 配置参数 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" lazy-init="false">
+		<property name="locations">
+			<!-- file:${config.root}/app.properties -->
+			<value>classpath:/application.properties</value>
+		</property>
+	</bean>
+
+	<!-- zipkin -->
+	<!-- 注意：这里的 id 要使用和 web.xml 中的 filter-name 同样的值 -->
+	<bean id="braveFilter" class="com.github.kristofa.brave.servlet.BraveServletFilter" lazy-init="false">
+		<constructor-arg value="#{brave.serverRequestInterceptor()}" />
+		<constructor-arg value="#{brave.serverResponseInterceptor()}" />
+		<constructor-arg>
+			<bean class="com.github.kristofa.brave.http.DefaultSpanNameProvider" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="brave" class="com.cc.learncode.servlet.ZipkinBraveFactoryBean" lazy-init="false">
+		<property name="serviceName" value="learncode-servlet" />
+		<property name="zipkinHost" value="http://localhost:9411" />
+	</bean>
+
+	<!-- end zipkin -->
+
+</beans>

@@ -20,13 +20,8 @@
 
 	<dependencyManagement>
 		<dependencies>
-		<!-- 	<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-parent</artifactId>
-				<version>1.4.1.RELEASE</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency> -->
+			<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-parent</artifactId> 
+				<version>1.4.1.RELEASE</version> <type>pom</type> <scope>import</scope> </dependency> -->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-starter</artifactId>
@@ -59,15 +54,20 @@
 		<module>learncode-config-server</module>
 		<module>learncode-config-client</module>
 		<module>learncode-eureka-server</module>
-    <module>learncode-eureka-service</module>
-    <module>learncode-eureka-ribbon</module>
-    <module>learncode-eureka-feign</module>
-    <module>learncode-netflix-hytrix</module>
-    <module>learncode-cloud-bus</module>
-    <module>learncode-cloud-kafaka</module>
-    <module>learncode-state-machine</module>
-    <module>learncode-actuator</module>
-    <module>learncode-cloud-consul</module>
+		<module>learncode-eureka-service</module>
+		<module>learncode-eureka-ribbon</module>
+		<module>learncode-eureka-feign</module>
+		<module>learncode-netflix-hytrix</module>
+		<module>learncode-cloud-bus</module>
+		<module>learncode-cloud-kafaka</module>
+		<module>learncode-state-machine</module>
+		<module>learncode-actuator</module>
+		<module>learncode-cloud-consul</module>
+		<module>learncode-boot</module>
+    <module>learncode-sleuth</module>
+    <module>learncode-zipkin</module>
+    <module>learncode-simple-service</module>
+    <module>learncode-servlet</module>
   </modules>
 
 	<build>

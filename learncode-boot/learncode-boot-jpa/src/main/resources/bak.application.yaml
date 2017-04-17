@@ -1,0 +1,11 @@
+spring:
+datasource:
+url: jdbc:mysql://30.0.0.5:3306/test
+username: mysql
+password: iwjw@2015
+driver-class-name: com.mysql.jdbc.Driver
+jpa:
+properties:
+hibernate:
+hbm2ddl:
+auto: create-drop
