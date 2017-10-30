@@ -4,6 +4,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
+
+import com.google.common.collect.Sets;
+import com.manyi.iw.fin.frenzy.restful.spring.converter.ConverterTargetTypeCarrier;
+import com.netfinworks.common.domain.OperationEnvironment;
+import com.netfinworks.deposit.api.domain.DepositDetailRequest;
+import com.netfinworks.deposit.api.domain.DepositDetailResponse;
+import com.netfinworks.deposit.api.domain.DepositRequest;
 
 /**
  * <p>
@@ -23,4 +31,9 @@ public class EurekaFeignApplication {
 		SpringApplication.run(EurekaFeignApplication.class, args);
 	}
 
+	@Bean
+	public ConverterTargetTypeCarrier createConverterTargetTypes() {
+		return new ConverterTargetTypeCarrier(Sets.newHashSet(DepositRequest.class, OperationEnvironment.class,DepositDetailRequest.class,DepositDetailResponse.class,DepositDetailResponse.class));
+	}
+	
 }

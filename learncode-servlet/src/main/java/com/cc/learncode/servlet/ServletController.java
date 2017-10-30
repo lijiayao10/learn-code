@@ -6,6 +6,7 @@ package com.cc.learncode.servlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,13 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ServletController {
 
-	private static final Logger logger = LoggerFactory.getLogger(ServletController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ServletController.class);
 
-	@ResponseBody
-	@RequestMapping("/home")
-	public String home() {
-		logger.info("call");
-		System.out.println("call");
-		return "Hello Servlet";
-	}
+    @ResponseBody
+    @RequestMapping("/home")
+    public String home(@RequestParam("str") String str) {
+        logger.info("call");
+        return str + "中文aaaa";
+    }
 }

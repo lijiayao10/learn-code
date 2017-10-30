@@ -68,6 +68,12 @@
     <module>learncode-zipkin</module>
     <module>learncode-simple-service</module>
     <module>learncode-servlet</module>
+    <module>tss-send-test</module>
+    <module>learncode-session</module>
+    <module>learncode-jstorm</module>
+    <module>learncode-thrift-server</module>
+    <module>learncode-thrift-interface</module>
+    <module>learncode-thrift-client</module>
   </modules>
 
 	<build>

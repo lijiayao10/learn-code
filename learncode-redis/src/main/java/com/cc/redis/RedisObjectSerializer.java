@@ -8,36 +8,36 @@ import org.springframework.data.redis.serializer.SerializationException;
 
 public class RedisObjectSerializer implements RedisSerializer<Object> {
 
-  private Converter<Object, byte[]> serializer = new SerializingConverter();
-  private Converter<byte[], Object> deserializer = new DeserializingConverter();
+    private final Converter<Object, byte[]> serializer   = new SerializingConverter();
+    private final Converter<byte[], Object> deserializer = new DeserializingConverter();
 
-  static final byte[] EMPTY_ARRAY = new byte[0];
+    static final byte[]               EMPTY_ARRAY  = new byte[0];
 
-  public Object deserialize(byte[] bytes) {
-    if (isEmpty(bytes)) {
-      return null;
+    @Override
+    public Object deserialize(final byte[] bytes) {
+        if (this.isEmpty(bytes))
+            return null;
+
+        try {
+            return this.deserializer.convert(bytes);
+        } catch (final Exception ex) {
+            throw new SerializationException("Cannot deserialize", ex);
+        }
     }
 
-    try {
-      return deserializer.convert(bytes);
-    } catch (Exception ex) {
-      throw new SerializationException("Cannot deserialize", ex);
-    }
-  }
+    @Override
+    public byte[] serialize(final Object object) {
+        if (object == null)
+            return EMPTY_ARRAY;
 
-  public byte[] serialize(Object object) {
-    if (object == null) {
-      return EMPTY_ARRAY;
+        try {
+            return this.serializer.convert(object);
+        } catch (final Exception ex) {
+            return EMPTY_ARRAY;
+        }
     }
 
-    try {
-      return serializer.convert(object);
-    } catch (Exception ex) {
-      return EMPTY_ARRAY;
+    private boolean isEmpty(final byte[] data) {
+        return (data == null || data.length == 0);
     }
-  }
-
-  private boolean isEmpty(byte[] data) {
-    return (data == null || data.length == 0);
-  }
 }
